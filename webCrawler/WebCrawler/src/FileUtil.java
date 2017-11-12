@@ -51,9 +51,9 @@ public class FileUtil {
 		}
 		return fileLines;
 	}
-	
-	
-	
+
+
+
 
 	public ArrayList<String> readFile(String fileLocation) {
 
@@ -78,12 +78,29 @@ public class FileUtil {
 		}
 		return strBuilder.toString();
 	}
-	
+
 	public void writeToFile(ArrayList<String> lines, String fileName) throws IOException {
 		FileWriter writer = new FileWriter(fileName); 
 		for(String str: lines) {
-		  writer.write(str + System.lineSeparator());
+			writer.write(str + System.lineSeparator());
 		}
+		writer.flush();
+		writer.close();
+	}
+
+	public void writeToFile(ArrayList<String> lines, String fileName, boolean append) throws IOException {
+		FileWriter writer = new FileWriter(fileName, append); 
+		for(String str: lines) {
+			writer.write(str + System.lineSeparator());
+		}
+		writer.flush();
+		writer.close();
+	}
+
+	public void writeToFile(String line, String fileName, boolean append) throws IOException {
+		FileWriter writer = new FileWriter(fileName, append); 	
+		writer.write(line + System.lineSeparator());
+		writer.flush();
 		writer.close();
 	}
 

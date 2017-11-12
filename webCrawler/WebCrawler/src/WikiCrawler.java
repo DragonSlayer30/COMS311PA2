@@ -84,9 +84,11 @@ public class WikiCrawler
 			linkIndex = htmlString.indexOf("href=", linkEnd);
 		}
 		System.out.println("Size of list : " + wikiLinks.size());
+		/*
 		for (String string : wikiLinks) {
 			System.out.println(string);
 		}
+		*/
 		return wikiLinks;
 
 	}

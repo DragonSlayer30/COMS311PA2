@@ -9,7 +9,7 @@ public class TestWebCrawler {
 		String result = "output.txt";
 		FileUtil fileUtil =  new FileUtil();
 		String doc = fileUtil.concatArrayList(fileUtil.readFile(filename));
-		WikiCrawler crawler = new WikiCrawler("/wiki/Complexity theory", 20, null, "Sample");
+		WikiCrawler crawler = new WikiCrawler("/wiki/Complexity theory", 20, null, "CrawlerResult.txt");
 		ArrayList<String> answerList = crawler.extractLinks(doc);
 		try {
 			fileUtil.writeToFile(answerList, result);
