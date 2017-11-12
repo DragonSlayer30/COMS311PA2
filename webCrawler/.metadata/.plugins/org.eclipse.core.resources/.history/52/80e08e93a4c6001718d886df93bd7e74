@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+
+public class GraphProcessor
+{
+	// other member fields and methods
+
+	// NOTE: graphData should be an absolute file path
+	public GraphProcessor(String graphData)
+	{
+		// implementation
+	}
+
+	public int outDegree(String v)
+	{
+		// implementation
+	}
+
+	public ArrayList<String> bfsPath(String u, String v)
+	{
+		// implementation
+	}
+
+	public int diameter()
+	{
+		// implementation
+	}
+
+	public int centrality(String v)
+	{
+		// implementation
+	}
+
+}

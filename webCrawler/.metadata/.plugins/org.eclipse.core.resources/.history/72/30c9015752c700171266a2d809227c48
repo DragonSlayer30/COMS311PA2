@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class FileUtil {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public ArrayList<String> readFile(String fileLocation) {
+		
+		//read file into stream, try-with-resources
+		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
+
+			stream.forEach(System.out::println);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}
