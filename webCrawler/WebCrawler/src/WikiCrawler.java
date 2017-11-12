@@ -13,19 +13,51 @@ import java.util.ArrayList;
 public class WikiCrawler
 {
 	static final String BASE_URL = "https://en.wikipedia.org";
+	
+	private int limit = 50;
+	private int sleepduration = 3000;
+	
+	private HttpHelper helper = new HttpHelper(limit, sleepduration);
+	private FileUtil fileUtil = new FileUtil();
 
-	public WikiCrawler(String seedUrl, int max, ArrayList<String> topics, String fileName)
-	{
+	private GraphVertex root;
+	
+	private String resultFile = "";
+	
+	private ArrayList<String> topics = new ArrayList<>();
+	
+	
+	
+	public WikiCrawler(String seedUrl, int max, ArrayList<String> topicsList, String fileName) {
+		root = new GraphVertex(seedUrl, max, helper, this);
+		topics = topicsList;
+		resultFile = fileName;
+		limit  = max;
 	}
-
+	
 	// NOTE: extractLinks takes the source HTML code, NOT a URL
-	public ArrayList<String> extractLinks(String doc)
-	{
-		return null;
+	public ArrayList<String> extractLinks(String doc) {
+		int linkIndex = -1;
+		int linkEnd = -1;
+		int pTagIndx = -1;
+		int pTagIndx2 = -1;
+		ArrayList<String> wikiLinks = new ArrayList<>();
+		String htmlString = doc.trim().replaceAll(" +", " ");
+		pTagIndx = htmlString.indexOf("<p>");
+		pTagIndx2 = htmlString.indexOf("<P>");
+		if(pTagIndx > pTagIndx2 && pTagIndx > -1 && pTagIndx2 > -1) pTagIndx = pTagIndx2;
+		linkIndex = htmlString.indexOf("href=", pTagIndx);
+		while(linkIndex > -1) {
+			linkEnd = htmlString.indexOf("\"", linkIndex + 6);
+			String link = htmlString.substring(linkIndex + 6, linkEnd);
+			if(link.startsWith("/wiki/") && !link.contains("#") && !link.contains(":")) wikiLinks.add(htmlString.substring(linkIndex + 6, linkEnd));
+			linkIndex = htmlString.indexOf("href=", linkEnd);
+		}
+		return wikiLinks;
 	}
 
-	public void crawl()
-	{
+	public void crawl()	{
+		root.intiateCrawl(root);
 	}
 }
 
