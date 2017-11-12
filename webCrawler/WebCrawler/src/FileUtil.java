@@ -17,11 +17,12 @@ public class FileUtil {
 		FileUtil fileUtil = new FileUtil();
 		ArrayList<String> strings = fileUtil.readFile(filename);
 		String htmlString = fileUtil.concatArrayList(strings).trim().replaceAll(" +", " ");
-		linkIndex = htmlString.indexOf("<a href=");
+		linkIndex = htmlString.indexOf("href=");
 		while(linkIndex > -1) {
-			linkEnd = htmlString.indexOf("\"", linkIndex + 9);
-			System.out.println(htmlString.substring(linkIndex, linkEnd + 1));
-			linkIndex = htmlString.indexOf("<a href=", linkEnd);
+			linkEnd = htmlString.indexOf("\"", linkIndex + 6);
+			String link = htmlString.substring(linkIndex + 6, linkEnd);
+			if(link.startsWith("/wiki/") && !link.contains("#") && !link.contains(":")) System.out.println(htmlString.substring(linkIndex + 6, linkEnd));
+			linkIndex = htmlString.indexOf("href=", linkEnd);
 		}
 		/*
 		for (String string : strings) {
@@ -43,7 +44,7 @@ public class FileUtil {
 			String line;
 			while ((line = br.readLine()) != null) {
 				//System.out.println(line + " " + line.contains("<p>"));
-				if(line.contains("<p>")) {
+				if(line.contains("<p>") || line.contains("<P>")) {
 					pTagCheck = true; 
 					fileLines.add(line); 
 				}
