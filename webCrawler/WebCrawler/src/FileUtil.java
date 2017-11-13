@@ -61,7 +61,7 @@ public class FileUtil {
 		try (BufferedReader br = Files.newBufferedReader(Paths.get(fileLocation))) {
 			String line;
 			while((line = br.readLine()) != null) { 
-				fileLines.add(line);
+				fileLines.add(line.trim());
 			}
 		}
 		catch (IOException e) {

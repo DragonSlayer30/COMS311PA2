@@ -7,7 +7,11 @@
 // DO NOT INCLUDE LIBRARIES OUTSIDE OF THE JAVA STANDARD LIBRARY
 //  (i.e., you may include java.util.ArrayList etc. here, but not junit, apache commons, google guava, etc.)
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 public class WikiCrawler
@@ -65,6 +69,7 @@ public class WikiCrawler
 		int wikiPage = -1;
 		String wikiContentID = "mw-content-text"; //bodyContent , content
 		String wikiEnd = "id=\"External_links\"";
+		HashSet<String> uniqueLinks = new HashSet<String>();
 		ArrayList<String> wikiLinks = new ArrayList<>();
 		String htmlString = doc.trim().replaceAll(" +", " ");
 		wikiPage = htmlString.indexOf(wikiContentID);
@@ -79,22 +84,32 @@ public class WikiCrawler
 			String link = htmlString.substring(linkIndex + 6, linkEnd);
 			//System.out.println(link);
 			if(link.startsWith("/wiki/") && !link.contains("#") && !link.contains(":")) { 
-				wikiLinks.add(htmlString.substring(linkIndex + 6, linkEnd)); 
+				if(!uniqueLinks.contains(link)) {
+					wikiLinks.add(link); 
+					uniqueLinks.add(link);
+				}
 			}
 			linkIndex = htmlString.indexOf("href=", linkEnd);
 		}
-		System.out.println("Size of list : " + wikiLinks.size());
+		//System.out.println("Size of list : " + wikiLinks.size());
 		/*
 		for (String string : wikiLinks) {
 			System.out.println(string);
 		}
-		*/
+		 */
 		return wikiLinks;
 
 	}
 
 	public void crawl()	{
-		root.intiateCrawl(root);
+		ArrayList<String> allLinks = root.intiateCrawl(root);
+		try {
+			fileUtil.writeToFile("" + allLinks.size(), resultFile, false);
+			root.makeGraph(allLinks, resultFile);
+		} catch (IOException | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
 
