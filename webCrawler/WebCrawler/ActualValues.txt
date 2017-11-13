@@ -1,0 +1,20 @@
+Finding for counter : 1, value : /wiki/Complexity theory, edges : 19,19,0
+Finding for counter : 2, value : /wiki/Complex_systems, edges : 14,14,0
+Finding for counter : 3, value : /wiki/Complexity, edges : 8,5,3
+Finding for counter : 4, value : /wiki/Complexity_theory_and_organizations, edges : 4,6,-2
+Finding for counter : 5, value : /wiki/Complexity_economics, edges : 6,6,0
+Finding for counter : 6, value : /wiki/Complex_adaptive_system, edges : 6,3,3
+Finding for counter : 7, value : /wiki/Computational_complexity_theory, edges : 1,1,0
+Finding for counter : 8, value : /wiki/Biological_organisation, edges : 1,1,0
+Finding for counter : 9, value : /wiki/Cybernetics, edges : 6,6,0
+Finding for counter : 10, value : /wiki/Cognitive_Science, edges : 2,1,1
+Finding for counter : 11, value : /wiki/Complex_networks, edges : 3,3,0
+Finding for counter : 12, value : /wiki/Dissipative_system, edges : 4,4,0
+Finding for counter : 13, value : /wiki/Dual-phase_evolution, edges : 2,3,-1
+Finding for counter : 14, value : /wiki/Dynamical_system, edges : 9,4,5
+Finding for counter : 15, value : /wiki/Dynamical_systems_theory, edges : 4,4,0
+Finding for counter : 16, value : /wiki/Attractor, edges : 4,4,0
+Finding for counter : 17, value : /wiki/Chaos_theory, edges : 9,6,3
+Finding for counter : 18, value : /wiki/Lorenz_system, edges : 5,2,3
+Finding for counter : 19, value : /wiki/Limit_cycle, edges : 1,2,-1
+Finding for counter : 20, value : /wiki/Edge_of_chaos, edges : 4,2,2

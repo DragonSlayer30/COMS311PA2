@@ -1,0 +1,7 @@
+/wiki/Science
+/wiki/Computation
+/wiki/Procedure_(computer_science)
+/wiki/Algorithm
+/wiki/Information
+/wiki/CiteSeerX
+/wiki/Charles_Babbage
