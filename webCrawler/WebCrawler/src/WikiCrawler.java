@@ -45,6 +45,7 @@ public class WikiCrawler
 		int linkEnd = -1;
 		int pTagIndx = -1;
 		int pTagIndx2 = -1;
+		HashSet<String> uniqueLinks = new HashSet<String>();
 		ArrayList<String> wikiLinks = new ArrayList<>();
 		String htmlString = doc.trim().replaceAll(" +", " ");
 		pTagIndx = htmlString.indexOf("<p>");
@@ -54,7 +55,10 @@ public class WikiCrawler
 		while(linkIndex > -1) {
 			linkEnd = htmlString.indexOf("\"", linkIndex + 6);
 			String link = htmlString.substring(linkIndex + 6, linkEnd);
-			if(link.startsWith("/wiki/") && !link.contains("#") && !link.contains(":")) wikiLinks.add(htmlString.substring(linkIndex + 6, linkEnd));
+			if(link.startsWith("/wiki/") && !link.contains("#") && !link.contains(":") && !uniqueLinks.contains(link)) { 
+				wikiLinks.add(htmlString.substring(linkIndex + 6, linkEnd)); 
+				uniqueLinks.add(link);
+			}
 			linkIndex = htmlString.indexOf("href=", linkEnd);
 		}
 		return wikiLinks;

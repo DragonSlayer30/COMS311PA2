@@ -9,8 +9,10 @@ public class TestWebCrawler {
 		String result = "output.txt";
 		String crawlerOutput = "CrawlerResult.txt";
 		String correctAnswer = "wikiCC.txt";
+		HttpHelper helper = new HttpHelper(2, 3000);
 		FileUtil fileUtil =  new FileUtil();
 		String doc = fileUtil.concatArrayList(fileUtil.readFile(filename));
+		String wikiComplexity =  "/wiki/Complexity";
 		WikiCrawler crawler = new WikiCrawler("/wiki/Complexity theory", 20, null, crawlerOutput);
 		ArrayList<String> answerList = crawler.extractLinks(doc);
 		try {
