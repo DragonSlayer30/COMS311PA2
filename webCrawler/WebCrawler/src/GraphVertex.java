@@ -61,10 +61,8 @@ public class GraphVertex {
 		ArrayList<Vertex> hyperLinks = new ArrayList<Vertex>();
 		HashSet<String> topicsHash = new HashSet<String>();
 		int pageCounter = 0;
-		int vertexCounter = 1;
 		if(topicsList != null) topicsHash.addAll(topicsList);
 		String docLink = vertex.seedUrl;
-		boolean limitReached = false;
 		Vertex v = new Vertex(docLink, new ArrayList<String>());
 		hyperLinks.add(v);
 		while(pageCounter < maxCount) {
@@ -73,20 +71,18 @@ public class GraphVertex {
 				if(checkValidity(htmlContent)) {
 					ArrayList<String> extractedLinks = crawler.extractLinks(htmlContent);
 					System.out.println("Links size : " + extractedLinks.size());
-					int childCounter = 0;
+					v.edgeLink = extractedLinks;
+					hyperLinks.add(v);
 					for (String string : extractedLinks) {
-						while(vertexCounter < maxCount && !limitReached) {
-							hyperLinks.get(pageCounter).edgeLink.add(string);
-							vertexCounter++;
-							childCounter++;
-							System.out.println("Adding : " + string);
-							if(childCounter > extractedLinks.size()) limitReached = true; break;
-						}
-						if(limitReached) break;	
+						hyperLinks.add(new Vertex(string, new ArrayList<String>()));	
 					} 
 				}
-				pageCounter++;
-				if(pageCounter < hyperLinks.size()) docLink = hyperLinks.get(pageCounter).url;
+				System.out.println("Page counter : " + pageCounter + " Doclink : " + docLink);
+				if(pageCounter < hyperLinks.size()) { 
+					pageCounter++; 
+					docLink = hyperLinks.get(pageCounter).url;
+					v = hyperLinks.get(pageCounter);
+				}
 				else break;
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -136,16 +132,17 @@ public class GraphVertex {
 
 	public void graphWithTopics(String outputFile, ArrayList<Vertex> vertices) {
 		FileUtil fi = new FileUtil();
+		HashSet<String> allLinkHash = new HashSet<String>();
+		for (Vertex v : vertices) {
+			allLinkHash.add(v.url);
+		}
 		System.out.println("Vertex size : " + vertices.get(0).edgeLink.size());
 		try {
 			fi.writeToFile(maxCount+"", outputFile, false);
 			for (Vertex vertex : vertices) {
 				for (String edg : vertex.edgeLink) {
-					fi.writeToFile(vertex.url + " " + edg, outputFile, true);
+					if(allLinkHash.contains(edg)) fi.writeToFile(vertex.url + " " + edg, outputFile, true);
 				}
-			}
-			for (String vertex : vertices.get(0).edgeLink) {
-				
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

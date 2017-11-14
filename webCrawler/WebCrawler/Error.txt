@@ -1,40 +1,41 @@
-, /wiki/Complex_systems /wiki/Complex_adaptive_system
-, /wiki/Complex_systems /wiki/Cybernetics
-, /wiki/Complex_systems /wiki/Chaos_theory
-, /wiki/Complex_systems /wiki/Complexity
-, /wiki/Complex_systems /wiki/Lorenz_system
-, /wiki/Complex_systems /wiki/Complexity_economics
-, /wiki/Complex_systems /wiki/Edge_of_chaos
-, /wiki/Complex_systems /wiki/Biological_organisation
-, /wiki/Complex_systems /wiki/Cognitive_Science
-, /wiki/Complex_systems /wiki/Complex_networks
-, /wiki/Complex_systems /wiki/Dissipative_system
-, /wiki/Complex_systems /wiki/Dual-phase_evolution
-, /wiki/Complex_systems /wiki/Dynamical_system
-, /wiki/Complex_systems /wiki/Dynamical_systems_theory
-, /wiki/Complexity /wiki/Chaos_theory
-, /wiki/Complexity /wiki/Computational_complexity_theory
-, /wiki/Complexity /wiki/Complex_adaptive_system
-, /wiki/Complexity /wiki/Complex_systems
-, /wiki/Complexity /wiki/Dual-phase_evolution
-, /wiki/Complexity /wiki/Dynamical_system
-, /wiki/Complexity /wiki/Edge_of_chaos
-, /wiki/Complexity /wiki/Lorenz_system
-, /wiki/Complexity_theory_and_organizations /wiki/Complex_systems
-, /wiki/Complexity_theory_and_organizations /wiki/Complexity
-, /wiki/Complexity_theory_and_organizations /wiki/Chaos_theory
-, /wiki/Complexity_theory_and_organizations /wiki/Edge_of_chaos
-, /wiki/Complexity_economics /wiki/Dynamical_system
-, /wiki/Complexity_economics /wiki/Complexity
-, /wiki/Complexity_economics /wiki/Chaos_theory
-, /wiki/Complexity_economics /wiki/Cybernetics
-, /wiki/Complexity_economics /wiki/Edge_of_chaos
-, /wiki/Complexity_economics /wiki/Complexity_theory_and_organizations
-, /wiki/Complex_adaptive_system /wiki/Complexity
-, /wiki/Complex_adaptive_system /wiki/Chaos_theory
-, /wiki/Complex_adaptive_system /wiki/Dual-phase_evolution
-, /wiki/Complex_adaptive_system /wiki/Dynamical_system
-, /wiki/Complex_adaptive_system /wiki/Complex_systems
+/wiki/Complexity_theory /wiki/Complexity_theory, /wiki/Complexity_theory /wiki/Edge_of_chaos
+/wiki/Complexity_theory /wiki/Complexity, /wiki/Complex_systems /wiki/Complex_adaptive_system
+/wiki/Complexity_theory /wiki/Complex_systems, /wiki/Complex_systems /wiki/Cybernetics
+/wiki/Complexity_theory /wiki/Complexity_theory_and_organizations, /wiki/Complex_systems /wiki/Chaos_theory
+/wiki/Complexity_theory /wiki/Complexity_economics, /wiki/Complex_systems /wiki/Complexity
+/wiki/Complexity_theory /wiki/Complex_adaptive_system, /wiki/Complex_systems /wiki/Lorenz_system
+/wiki/Complexity_theory /wiki/Computational_complexity_theory, /wiki/Complex_systems /wiki/Complexity_economics
+/wiki/Complexity_theory /wiki/Biological_organisation, /wiki/Complex_systems /wiki/Edge_of_chaos
+/wiki/Complexity_theory /wiki/Cybernetics, /wiki/Complex_systems /wiki/Biological_organisation
+/wiki/Complexity_theory /wiki/Cognitive_Science, /wiki/Complex_systems /wiki/Cognitive_Science
+/wiki/Complexity_theory /wiki/Complex_networks, /wiki/Complex_systems /wiki/Complex_networks
+/wiki/Complexity_theory /wiki/Dissipative_system, /wiki/Complex_systems /wiki/Dissipative_system
+/wiki/Complexity_theory /wiki/Dual-phase_evolution, /wiki/Complex_systems /wiki/Dual-phase_evolution
+/wiki/Complexity_theory /wiki/Dynamical_system, /wiki/Complex_systems /wiki/Dynamical_system
+/wiki/Complexity_theory /wiki/Dynamical_systems_theory, /wiki/Complex_systems /wiki/Dynamical_systems_theory
+/wiki/Complexity_theory /wiki/Attractor, /wiki/Complexity /wiki/Chaos_theory
+/wiki/Complexity_theory /wiki/Chaos_theory, /wiki/Complexity /wiki/Computational_complexity_theory
+/wiki/Complexity_theory /wiki/Lorenz_system, /wiki/Complexity /wiki/Complex_adaptive_system
+/wiki/Complexity_theory /wiki/Limit_cycle, /wiki/Complexity /wiki/Complex_systems
+/wiki/Complexity_theory /wiki/Complexity_theory, /wiki/Complexity /wiki/Dual-phase_evolution
+/wiki/Complexity /wiki/Chaos_theory, /wiki/Complexity /wiki/Dynamical_system
+/wiki/Complexity /wiki/Computational_complexity_theory, /wiki/Complexity /wiki/Edge_of_chaos
+/wiki/Complexity /wiki/Complex_adaptive_system, /wiki/Complexity /wiki/Lorenz_system
+/wiki/Complexity /wiki/Complex_systems, /wiki/Complexity_theory_and_organizations /wiki/Complex_systems
+/wiki/Complexity /wiki/Dual-phase_evolution, /wiki/Complexity_theory_and_organizations /wiki/Complexity
+/wiki/Complexity /wiki/Dynamical_system, /wiki/Complexity_theory_and_organizations /wiki/Chaos_theory
+/wiki/Complexity /wiki/Lorenz_system, /wiki/Complexity_theory_and_organizations /wiki/Edge_of_chaos
+/wiki/Complexity /wiki/Complexity, /wiki/Complexity_economics /wiki/Dynamical_system
+/wiki/Complexity_theory_and_organizations /wiki/Complex_systems, /wiki/Complexity_economics /wiki/Complexity
+/wiki/Complexity_theory_and_organizations /wiki/Complexity, /wiki/Complexity_economics /wiki/Chaos_theory
+/wiki/Complexity_theory_and_organizations /wiki/Chaos_theory, /wiki/Complexity_economics /wiki/Cybernetics
+/wiki/Complexity_theory_and_organizations /wiki/Complexity_theory_and_organizations, /wiki/Complexity_economics /wiki/Edge_of_chaos
+/wiki/Complexity_economics /wiki/Dynamical_system, /wiki/Complexity_economics /wiki/Complexity_theory_and_organizations
+/wiki/Complexity_economics /wiki/Complexity, /wiki/Complex_adaptive_system /wiki/Complexity
+/wiki/Complexity_economics /wiki/Chaos_theory, /wiki/Complex_adaptive_system /wiki/Chaos_theory
+/wiki/Complexity_economics /wiki/Cybernetics, /wiki/Complex_adaptive_system /wiki/Dual-phase_evolution
+/wiki/Complexity_economics /wiki/Complexity_theory_and_organizations, /wiki/Complex_adaptive_system /wiki/Dynamical_system
+/wiki/Complexity_economics /wiki/Complexity_economics, /wiki/Complex_adaptive_system /wiki/Complex_systems
 , /wiki/Complex_adaptive_system /wiki/Cybernetics
 , /wiki/Computational_complexity_theory /wiki/Complexity
 , /wiki/Biological_organisation /wiki/Complex_systems

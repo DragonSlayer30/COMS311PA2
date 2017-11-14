@@ -21,7 +21,7 @@ public class HttpHelper {
 
 	public String getUrlContents(String theUrl) throws InterruptedException {
 		requestCounter++;
-		//System.out.println("Request Counter : " + requestCounter);
+		System.out.println("Request Counter : " + requestCounter);
 		if(requestCounter % requestLimit == 0) { 
 			System.out.println("I am sleeping ....");
 			Thread.sleep(sleepTime);
