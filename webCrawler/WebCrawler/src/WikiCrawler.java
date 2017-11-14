@@ -33,7 +33,7 @@ public class WikiCrawler
 
 
 	public WikiCrawler(String seedUrl, int max, ArrayList<String> topicsList, String fileName) {
-		root = new GraphVertex(seedUrl, max, helper, this);
+		root = new GraphVertex(seedUrl, max, helper, this, topicsList);
 		topics = topicsList;
 		resultFile = fileName;
 		limit  = max;
@@ -109,8 +109,9 @@ public class WikiCrawler
 		ArrayList<String> allLinks = root.intiateCrawl(root);
 		try {
 			fileUtil.writeToFile("" + allLinks.size(), resultFile, false);
-			root.makeGraph(allLinks, resultFile);
-		} catch (IOException | InterruptedException e) {
+			//root.makeGraph(allLinks, resultFile);
+			root.graphWithTopics(resultFile, root.withTopics(root, topics));
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -12,8 +12,10 @@ public class TestWebCrawler {
 		HttpHelper helper = new HttpHelper(2, 3000);
 		FileUtil fileUtil =  new FileUtil();
 		String doc = fileUtil.concatArrayList(fileUtil.readFile(filename));
-		String wikiComplexity =  "/wiki/Complexity";
-		WikiCrawler crawler = new WikiCrawler("/wiki/Complexity theory", 20, null, crawlerOutput);
+		String wikiComplexity =  "/wiki/Complexity_theory";
+		ArrayList<String> topics = new ArrayList<String>();
+		topics.add("computer");
+		WikiCrawler crawler = new WikiCrawler(wikiComplexity, 20, null, crawlerOutput);
 		ArrayList<String> answerList = crawler.extractLinks(doc);
 		try {
 			fileUtil.writeToFile(answerList, result);
