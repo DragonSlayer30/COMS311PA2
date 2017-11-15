@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Queue;
 
 
 public class GraphProcessor
 {
 	HashMap<String, HashSet<String>> graph = new HashMap<String, HashSet<String>>();
+	ArrayList<Vertex> allVertices = new ArrayList<Vertex>();
 	FileUtil fileHelper = new FileUtil();
 	int vertices = 0;
 	int edges = 0;
@@ -32,7 +34,22 @@ public class GraphProcessor
 	}
 
 	public ArrayList<String> bfsPath(String u, String v) {
-		return null;
+		int pathCounter = 0;
+		ArrayList<String> pathArr = new ArrayList<String>();
+		ArrayList<String> queue = new ArrayList<String>();
+		HashSet<String> links = new HashSet<String>();
+		HashSet<String> visited = new HashSet<String>();
+		queue.add(u);
+		pathArr.add(u);
+		visited.add(u);
+		links = graph.get(u);
+		if(links == null) return new ArrayList<String>();
+		for (String edgeLink : links) {
+			if(edgeLink.equals(v)) {
+				pathArr.add(v);
+			}
+		}
+		return pathArr;
 	}
 
 	public int diameter() {
@@ -42,5 +59,6 @@ public class GraphProcessor
 	public int centrality(String v) {
 		return 0;
 	}
+	
 
 }
