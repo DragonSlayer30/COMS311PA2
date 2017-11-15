@@ -46,10 +46,9 @@ public class GraphProcessor
 		oneLevelParent.add(u);
 		ArrayList<String> childPoss = new ArrayList<String>();
 		i = 0;
-		int totalSize = graph.size();
 		//System.out.print(element + "\t");
 		while(i < edges) {
-			System.out.println("index i : " + i + " " + totalSize);
+			//System.out.println("index i : " + i + " " + totalSize);
 			for (String p : oneLevelParent) {
 				int cutIndex = p.lastIndexOf("#");
 				String key = null;
@@ -57,18 +56,18 @@ public class GraphProcessor
 					key = p;
 				}
 				else key = p.substring(cutIndex + 1);
-				System.out.println("Parent : " + p + " cutindex : " + cutIndex + " " + key);
+				//System.out.println("Parent : " + p + " cutindex : " + cutIndex + " " + key);
 				if(graph.get(key) != null) {
 					for (String string : graph.get(key)) {
 						i++;
-						System.out.println("Path from : " + key + " " + string);
+						//System.out.println("Path from : " + key + " " + string);
 						if(string.equals(v)) {
 							String[] pathList = p.concat("#" + v).split("#");
 							return new ArrayList<String>(Arrays.asList(pathList));
 						}
 						if(!visited.contains(string)) {
 							visited.add(string);
-							System.out.println("Adding child : " + p.concat("#" + string));
+							//System.out.println("Adding child : " + p.concat("#" + string));
 							childPoss.add(p.concat("#" + string));
 						}
 					}
@@ -89,8 +88,8 @@ public class GraphProcessor
 				if(!vertex2.equals(vertex)) {
 					int d = bfsPath(vertex, vertex2).size();
 					if(d == 0) { 
-						System.out.println("No path between : " + vertex + "  " + vertex2);
-						return graph.size()*2;
+						//System.out.println("No path between : " + vertex + "  " + vertex2);
+						d = graph.size()*2;
 					}
 					if(d > diameter) diameter = d;
 				}
