@@ -22,7 +22,8 @@ public class GraphVertex {
 		childrenHash.add(seedUrl2);
 		helper = http;
 		crawler = crawlerParent;
-		topics = topicsList;
+		if(topicsList != null) topics = topicsList;
+		else topics = new ArrayList<>();
 	}
 
 	public ArrayList<String> intiateCrawl(GraphVertex grph) {
@@ -59,42 +60,49 @@ public class GraphVertex {
 
 	public ArrayList<Vertex> withTopics(GraphVertex vertex, ArrayList<String> topicsList) {
 		ArrayList<Vertex> hyperLinks = new ArrayList<Vertex>();
+		ArrayList<Vertex> validLinks = new ArrayList<Vertex>();
 		HashSet<String> topicsHash = new HashSet<String>();
 		int pageCounter = 0;
 		if(topicsList != null) topicsHash.addAll(topicsList);
 		String docLink = vertex.seedUrl;
-		Vertex v = new Vertex(docLink, new ArrayList<String>());
-		hyperLinks.add(v);
-		while(pageCounter < maxCount) {
-			try {
-				String htmlContent = helper.getUrlContents(docLink);
+		try {
+			String htmlContent = helper.getUrlContents(docLink);
+			HashSet<String> child = new HashSet<String>();
+			ArrayList<String> wikiLinks = crawler.extractLinks(htmlContent);
+			child.add(docLink);
+			while(validLinks.size() < maxCount) {
+				htmlContent = helper.getUrlContents(docLink);
+				wikiLinks = crawler.extractLinks(htmlContent);
+				Vertex v = new Vertex(docLink, wikiLinks);
+				System.out.println("Fetching link for : " + docLink + " " + pageCounter);
+				System.out.println("Children count : " + wikiLinks.size());
+				//System.out.println(htmlContent);
+				System.out.println("Valid : " + checkValidity(htmlContent));
 				if(checkValidity(htmlContent)) {
-					ArrayList<String> extractedLinks = crawler.extractLinks(htmlContent);
-					System.out.println("Links size : " + extractedLinks.size());
-					v.edgeLink = extractedLinks;
+					validLinks.add(v);
+					System.out.println("adding : " + docLink);
 					hyperLinks.add(v);
-					for (String string : extractedLinks) {
-						hyperLinks.add(new Vertex(string, new ArrayList<String>()));	
-					} 
+					pageCounter++;
+					FileUtil fileUtil = new FileUtil();
+					fileUtil.writeToFile(wikiLinks, "wikiExtracted.txt", true);
+					for (String s : wikiLinks) {
+						if(!child.contains(s)) hyperLinks.add(new Vertex(s, new ArrayList<String>()));child.add(s);
+					}
 				}
-				System.out.println("Page counter : " + pageCounter + " Doclink : " + docLink);
 				if(pageCounter < hyperLinks.size()) { 
-					pageCounter++; 
-					docLink = hyperLinks.get(pageCounter).url;
-					v = hyperLinks.get(pageCounter);
+					docLink = hyperLinks.get(pageCounter).url; 
 				}
-				else break;
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+		} catch (InterruptedException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return new ArrayList<Vertex>(hyperLinks.subList(0, pageCounter));
+		return validLinks;
 	}
 
 	private boolean checkValidity(String htmlContent) {
 		// TODO Auto-generated method stub
-		for (String string : childenArray) {
+		for (String string : topics) {
 			if(!htmlContent.contains(string)) {
 				return false;
 			}
@@ -136,13 +144,18 @@ public class GraphVertex {
 		for (Vertex v : vertices) {
 			allLinkHash.add(v.url);
 		}
-		System.out.println("Vertex size : " + vertices.get(0).edgeLink.size());
+		System.out.println("Vertex size : " + vertices.size());
 		try {
 			fi.writeToFile(maxCount+"", outputFile, false);
 			for (Vertex vertex : vertices) {
+				int edgecount = 0;
 				for (String edg : vertex.edgeLink) {
-					if(allLinkHash.contains(edg)) fi.writeToFile(vertex.url + " " + edg, outputFile, true);
+					if(allLinkHash.contains(edg) && !edg.equals(vertex.url)) { 
+						fi.writeToFile(vertex.url + " " + edg, outputFile, true); 
+						edgecount++;
+					}
 				}
+				System.out.println("Edges from " + vertex.url + ": " + edgecount + " Actual size : " + vertex.edgeLink.size());
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -110,6 +110,7 @@ public class WikiCrawler
 		try {
 			fileUtil.writeToFile("" + allLinks.size(), resultFile, false);
 			//root.makeGraph(allLinks, resultFile);
+			//root.withTopics(root, topics);
 			root.graphWithTopics(resultFile, root.withTopics(root, topics));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
