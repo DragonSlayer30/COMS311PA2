@@ -12,8 +12,8 @@ public class TestWebCrawler {
 		HttpHelper helper = new HttpHelper(2, 3000);
 		FileUtil fileUtil =  new FileUtil();
 		String doc = fileUtil.concatArrayList(fileUtil.readFile(filename));
-		String wikiComplexity =  "/wiki/Complexity_theory";
-		int maxVertices = 20;
+		String wikiComplexity =  "/wiki/Computer_Science";
+		int maxVertices = 200;
 		ArrayList<String> topics = new ArrayList<String>();
 		topics.add("computer");
 		WikiCrawler crawler = new WikiCrawler(wikiComplexity, maxVertices, null, crawlerOutput);

@@ -13,7 +13,10 @@ public class GraphProcessor
 	FileUtil fileHelper = new FileUtil();
 	int vertices = 0;
 	int edges = 0;
+	HashMap<String, Integer> centrality = new HashMap<String, Integer>();
 	private Queue<String> queue;
+	private boolean checkDiameter = false;
+	int diameterCal = 0;
 
 	// NOTE: graphData should be an absolute file path
 	public GraphProcessor(String graphData) {
@@ -46,6 +49,7 @@ public class GraphProcessor
 		oneLevelParent.add(u);
 		ArrayList<String> childPoss = new ArrayList<String>();
 		i = 0;
+		if(u.equals(v)) return oneLevelParent;
 		//System.out.print(element + "\t");
 		while(i < edges) {
 			//System.out.println("index i : " + i + " " + totalSize);
@@ -82,11 +86,22 @@ public class GraphProcessor
 	}
 
 	public int diameter() {
+		if(checkDiameter) return diameterCal;
+		checkDiameter = true;
 		int diameter = 0;
 		for (String vertex : graph.keySet()) {
 			for (String vertex2 : graph.keySet()) {
 				if(!vertex2.equals(vertex)) {
-					int d = bfsPath(vertex, vertex2).size();
+					//System.out.println("Finding path from : " + vertex + " " + vertex2);
+					ArrayList<String> path = bfsPath(vertex, vertex2);
+					int d = path.size();
+					for (int i = 1 ; i < d -1; i++) {
+						if(!centrality.containsKey(path.get(i))) {
+							centrality.put(path.get(i), 1);
+						}
+						else centrality.put(path.get(i), centrality.get(path.get(i)) + 1);
+						//System.out.println("Centrality for " + path.get(i) + " : " + centrality.get(path.get(i)));
+					}
 					if(d == 0) { 
 						//System.out.println("No path between : " + vertex + "  " + vertex2);
 						d = graph.size()*2;
@@ -95,10 +110,17 @@ public class GraphProcessor
 				}
 			}
 		}
+		diameterCal = diameter;
 		return diameter;
 	}
 
 	public int centrality(String v) {
+		if(!checkDiameter) {
+			diameter();
+		}
+		if(centrality.get(v) != null) {
+			return centrality.get(v);
+		}
 		return 0;
 	}
 
