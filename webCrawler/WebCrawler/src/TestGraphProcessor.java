@@ -4,8 +4,8 @@ public class TestGraphProcessor {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//String graphFile = "WikiCS.txt";
-		String graphFile = "graphData.txt";
+		String graphFile = "WikiCS.txt";
+		//String graphFile = "graphData.txt";
 		//String graphFile = "wikiCC.txt";
 		GraphProcessor graphProcessor = new GraphProcessor(graphFile);
 		int totalEdges = 0;
@@ -29,8 +29,8 @@ public class TestGraphProcessor {
 		for (String string : path) {
 			System.out.println(string);
 		}
-		//System.out.println("Diameter : " + graphProcessor.diameter());
-		String centrality = "Minneapolis";
+		System.out.println("Diameter : " + graphProcessor.diameter());
+		String centrality = "/wiki/Computer_Science";
 		System.out.println("Centrality of " + centrality + " : " + graphProcessor.centrality(centrality));
 		//graphProcessor.bfs(p1);
 	}

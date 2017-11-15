@@ -7,7 +7,7 @@ public class TestWebCrawler {
 		// TODO Auto-generated method stub
 		String filename = "sample.txt";
 		String result = "output.txt";
-		String crawlerOutput = "CrawlerResult.txt";
+		String crawlerOutput = "WikiCS.txt";
 		String correctAnswer = "wikiCC.txt";
 		HttpHelper helper = new HttpHelper(2, 3000);
 		FileUtil fileUtil =  new FileUtil();
