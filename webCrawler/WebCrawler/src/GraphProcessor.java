@@ -42,7 +42,6 @@ public class GraphProcessor
 		HashSet<String> visited = new HashSet<String>();
 		int i;
 		visited.add(u);
-		queue.add(u);
 		ArrayList<String> oneLevelParent = new ArrayList<String>();
 		oneLevelParent.add(u);
 		ArrayList<String> childPoss = new ArrayList<String>();
@@ -74,8 +73,8 @@ public class GraphProcessor
 						}
 					}
 				}
-				i++;
 			}
+			i++;
 			oneLevelParent.clear();
 			oneLevelParent.addAll(childPoss);
 			childPoss.clear();

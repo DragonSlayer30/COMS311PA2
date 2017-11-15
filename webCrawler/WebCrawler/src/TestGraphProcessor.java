@@ -17,7 +17,7 @@ public class TestGraphProcessor {
 		//String p1 = "/wiki/Lorenz_system";
 		//String p2 = "/wiki/Complexity_theory";
 		String p1 = "Omaha";
-		String p2 = "";
+		String p2 = "Minneapolis";
 		//String p1 = "U";
 		//String p2 = "H";
 		ArrayList<String> path = graphProcessor.bfsPath(p1, p2);
