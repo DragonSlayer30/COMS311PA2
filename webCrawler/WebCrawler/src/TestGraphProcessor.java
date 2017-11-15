@@ -14,12 +14,20 @@ public class TestGraphProcessor {
 			totalEdges = totalEdges + edgeCount;
 		}
 		System.out.println("Total edges : " + totalEdges);
-		String p1 = "/wiki/Computer_performance";
-		String p2 = "/wiki/Algorithm";
+		//String p1 = "/wiki/Lorenz_system";
+		//String p2 = "/wiki/Complexity_theory";
+		String p1 = "Minneapolis";
+		String p2 = "Omaha";
+		//String p1 = "U";
+		//String p2 = "H";
 		ArrayList<String> path = graphProcessor.bfsPath(p1, p2);
-		for (String string : path) {
-			System.out.print(string + " ");
+		if(path.size() == 0) {
+			System.out.println("No path between : " + p1 + " " + p2);
 		}
+		for (String string : path) {
+			System.out.println(string);
+		}
+		//graphProcessor.bfs(p1);
 	}
 
 }

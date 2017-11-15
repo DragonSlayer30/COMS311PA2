@@ -7,13 +7,13 @@ public class TestWebCrawler {
 		// TODO Auto-generated method stub
 		String filename = "sample.txt";
 		String result = "output.txt";
-		String crawlerOutput = "WikiCS.txt";
+		String crawlerOutput = "CrawlerResult.txt";
 		String correctAnswer = "wikiCC.txt";
 		HttpHelper helper = new HttpHelper(2, 3000);
 		FileUtil fileUtil =  new FileUtil();
 		String doc = fileUtil.concatArrayList(fileUtil.readFile(filename));
-		String wikiComplexity =  "/wiki/Computer Science";
-		int maxVertices = 200;
+		String wikiComplexity =  "/wiki/Complexity_theory";
+		int maxVertices = 20;
 		ArrayList<String> topics = new ArrayList<String>();
 		topics.add("computer");
 		WikiCrawler crawler = new WikiCrawler(wikiComplexity, maxVertices, null, crawlerOutput);
